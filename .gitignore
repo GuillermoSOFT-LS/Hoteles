@@ -1,0 +1,35 @@
+# Archivos de compilación
+bin/
+obj/
+*.exe
+*.dll
+*.pdb
+
+# Configuración de usuario
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Carpetas de Visual Studio
+.vs/
+
+# Logs
+*.log
+
+# Publicaciones
+publish/
+PublishProfiles/
+
+# Paquetes NuGet
+*.nupkg
+packages/
+project.lock.json
+
+# Archivos temporales
+*.tmp
+*.temp
+
+# Base de datos local
+*.mdf
+*.ldf
