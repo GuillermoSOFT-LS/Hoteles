@@ -12,7 +12,7 @@
 
     <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
         <!-- Navbar Brand-->
-        <a class="navbar-brand ps-3" href="index.html">Mi Tienda</a>
+        <a class="navbar-brand ps-3" href="index.html">ShopZone</a>
         <!-- Sidebar Toggle-->
         <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
         <!-- Navbar Search-->
@@ -40,25 +40,25 @@
                 <div class="sb-sidenav-menu">
                     <div class="nav">
                         <div class="sb-sidenav-menu-heading">Resumen</div>
-                        <a class="nav-link" href="index.html">
+                        <a class="nav-link" href="@Url.Action("Index","Home")">
                             <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                             Dashboard
                         </a>
-                        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
+                        <a class="nav-link collapsed" href="@Url.Action("Usuarios","Home")">
                             <div class="sb-nav-link-icon"><i class="fas fa-users"></i></div>
                             Usuarios
                         </a>
 
                         <div class="sb-sidenav-menu-heading">Mantenimiento</div>
-                        <a class="nav-link" href="charts.html">
+                        <a class="nav-link" href="@Url.Action("Categorias","Manager")">
                             <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                             Categorias
                         </a>
-                        <a class="nav-link" href="tables.html">
+                        <a class="nav-link" href="@Url.Action("Marcas","Manager")">
                             <div class="sb-nav-link-icon"><i class="fas fa-bookmark"></i></div>
                             Marcas
                         </a>
-                        <a class="nav-link" href="tables.html">
+                        <a class="nav-link" href="@Url.Action("Productos","Manager")">
                             <div class="sb-nav-link-icon"><i class="fas fa-boxes"></i></div>
                             Productos
                         </a>
