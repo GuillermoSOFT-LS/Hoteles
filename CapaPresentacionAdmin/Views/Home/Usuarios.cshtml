@@ -4,5 +4,67 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Usuarios</h2>
+<h1 class="mt-4">Usuarios</h1>
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item"><a href="@Url.Action("Index","Home")">Resumen</a></li>
+    <li class="breadcrumb-item active">usuarios</li>
+</ol>
 
+<div class="card">
+    <div class="card-header">
+        <i class="fas fa-users me-1"></i> Lista de usuarios
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-12">
+                <button type="button" class="btn btn-success">Crear nuevo usuario</button>
+            </div>
+        </div>
+
+        <hr />
+
+        <table id="tabla" class="display cell-border" style="width: 100%">
+            <thead class="bg-dark text-white">
+                <tr>
+                    <th>Nombres</th>
+                    <th>Apellidos</th>
+                    <th>Correo</th>
+                    <th>Activo</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+</div>
+@section scripts {
+    <script>
+        $(document).ready(function () {
+            $('#tabla').DataTable({
+                ajax: {
+                    url: '@Url.Action("ListarUsuario", "Home")',
+                    dataSrc: 'data'
+                },
+                responsive: true,
+                columns: [
+                    { data: 'Nombres' },
+                    { data: 'Apellidos' },
+                    { data: 'Correo' },
+                    {
+                        data: 'Activo',
+                        render: function (data) {
+                            return data ? '<span class="badge bg-success">Sí</span>'
+                                        : '<span class="badge bg-danger">No</span>';
+                        }
+                    }
+                ],
+                language: {
+                    emptyTable: "No hay datos disponibles",
+                    loadingRecords: "Cargando datos..."
+                }
+            });
+        });
+    </script>
+}
+
+}
