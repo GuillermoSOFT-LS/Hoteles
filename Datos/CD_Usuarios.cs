@@ -19,9 +19,9 @@ namespace Datos
 			{
                 using (SqlConnection sqlcon = new SqlConnection(ConnectionSQL.SQLConnection))
                 {
-                    using(SqlCommand cmd = new SqlCommand("SELECT * FROM USUARIO", sqlcon))
+                    using(SqlCommand cmd = new SqlCommand("SELECT_USERS", sqlcon))
                     {
-                        cmd.CommandType = CommandType.Text;
+                        cmd.CommandType = CommandType.StoredProcedure;
                         sqlcon.Open();
 
                         using (SqlDataReader sdr = cmd.ExecuteReader())
@@ -49,7 +49,7 @@ namespace Datos
                     }
                 }
             }
-			catch (Exception err)
+			catch
 			{
                 lista = new List<Usuario>();
 			}
