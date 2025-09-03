@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace Datos
 {
-    public class ConnectionSQL
+    internal class ConnectionDB
     {
-        public static string SQLConnection = ConfigurationManager.ConnectionStrings["SQLConnection"].ToString();
+        public static string Conn = ConfigurationManager.ConnectionStrings["SQLConnection"].ToString();
     }
 }

@@ -15,18 +15,21 @@ namespace CapaPresentacionAdmin.Controllers
             return View();
         }
 
-        public ActionResult Usuarios()
+        public JsonResult ListaHabitaciones()
         {
-            return View();
+            List<CE_Habitacion> lista = new List<CE_Habitacion>();
+
+            lista = new CN_Habitacion().GetListHabitacion();
+
+            return Json(lista, JsonRequestBehavior.AllowGet);
         }
 
-        [HttpGet]
-        public JsonResult ListarUsuario()
+        public JsonResult FiltrarHabitaciones(string nombre)
         {
-            List<Usuario> lista = new List<Usuario>();
+            List<CE_Habitacion> lista = new List<CE_Habitacion>();
+            lista = new CN_Habitacion().Filtrarhabitaciones(nombre);
 
-            lista = new CN_Usuarios().GetLista();
-            return Json(new { data = lista }, JsonRequestBehavior.AllowGet);
+            return Json(lista, JsonRequestBehavior.AllowGet);
         }
     }
 }

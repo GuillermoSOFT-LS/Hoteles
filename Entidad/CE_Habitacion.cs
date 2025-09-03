@@ -6,9 +6,11 @@ using System.Threading.Tasks;
 
 namespace Entidad
 {
-    internal class Provincia
+    public class CE_Habitacion
     {
-        public int IdProvincia { get; set; }
+        public int Id { get; set; }
+        public string Tipo { get; set; }
         public string Descripcion { get; set; }
+        public bool Estado { get; set; }
     }
 }

@@ -1,10 +1,7 @@
-﻿@{
-    ViewBag.Title = "Home Page";
-}
+﻿
+<h1 class="pt-5 pb-3">Lista de Camas</h1>
 
-<h1 class="pt-5 pb-3">Lista de Habitaciones</h1>
-
-<div id="IdTabla"></div>
+<div id="IdTablaCamas"></div>
 
 
 
@@ -15,10 +12,10 @@
     }
     function listarHabitaciones() {
         Pintar({
-            url: '@Url.Action("ListaHabitaciones","Home")',
+            url: '@Url.Action("ListaCamas", "Cama")',
             cabeceras: ['Id', 'Tipo', 'Descripcion'],
-            Datos: ['Id', 'Tipo', 'Descripcion'],
-            Id: 'IdTabla'
+            Datos: ['Id', 'Nombre', 'Descripcion'],
+            Id: 'IdTablaCamas'
         });
     }
 </script>

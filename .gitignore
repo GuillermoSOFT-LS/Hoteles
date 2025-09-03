@@ -1,35 +1,49 @@
-# Archivos de compilación
+# Build results
 bin/
 obj/
-*.exe
-*.dll
-*.pdb
+Debug/
+Release/
+[Bb]uild/
+x64/
+x86/
 
-# Configuración de usuario
+# Visual Studio files
 *.user
 *.suo
 *.userosscache
 *.sln.docstates
+*.vs/
 
-# Carpetas de Visual Studio
-.vs/
+# NuGet
+*.nupkg
+*.snupkg
+packages/
+*.nuspec
+project.lock.json
+project.fragment.lock.json
+
+# IIS / Web
+*.vspscc
+*.vssscc
+*.pdb
+*.cache
+*.dbmdl
+*.bak
+*.ldf
+*.mdf
 
 # Logs
 *.log
 
-# Publicaciones
+# Publish
 publish/
-PublishProfiles/
+App_Data/
 
-# Paquetes NuGet
-*.nupkg
-packages/
-project.lock.json
+# Resharper / Rider / JetBrains
+_ReSharper*/
+*.DotSettings.user
+.idea/
 
-# Archivos temporales
-*.tmp
-*.temp
-
-# Base de datos local
-*.mdf
-*.ldf
+# Others
+Thumbs.db
+Desktop.ini
