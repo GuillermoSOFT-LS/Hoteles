@@ -47,5 +47,42 @@ namespace Datos
 
             return lista;
         }
+
+        public List<CE_Cama> GetCama(string nombre)
+        {
+            List<CE_Cama> lista = new List<CE_Cama>();
+
+            try
+            {
+                using (SqlConnection sqlcon = new SqlConnection(ConnectionDB.Conn))
+                {
+                    using (SqlCommand cmd = new SqlCommand("uspFiltarCama", sqlcon))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("nombrecama",(object)nombre ?? "");
+                        sqlcon.Open();
+
+                        SqlDataReader sdr = cmd.ExecuteReader();
+
+                        while (sdr.Read())
+                        {
+                            lista.Add(new CE_Cama
+                            {
+                                Id = Convert.ToInt32(sdr["IIDCAMA"]),
+                                Nombre = sdr["NOMBRE"].ToString(),
+                                Descripcion = sdr.IsDBNull(sdr.GetOrdinal("DESCRIPCION")) ? "No hay descripcion" : sdr["DESCRIPCION"].ToString()
+                            });
+                        }
+                    }
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+            return lista;
+        }
     }
 }

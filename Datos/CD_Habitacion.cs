@@ -77,7 +77,6 @@ namespace Datos
             }
             catch (Exception)
             {
-
                 throw;
             }
 

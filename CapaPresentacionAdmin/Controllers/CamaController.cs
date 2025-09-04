@@ -22,5 +22,12 @@ namespace CapaPresentacionAdmin.Controllers
             lista = new CN_Cama().GetCamas();
             return Json(lista, JsonRequestBehavior.AllowGet);
         }
+
+        public JsonResult FiltrarCamas(string nombre)
+        {
+            List<CE_Cama> lista = new List<CE_Cama>();
+            lista = new CN_Cama().GetCamaSearch(nombre);
+            return Json(lista, JsonRequestBehavior.AllowGet);
+        }
     }
 }

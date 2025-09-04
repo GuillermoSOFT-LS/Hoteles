@@ -3,21 +3,10 @@
 
 <div id="IdTablaCamas"></div>
 
-
-
+<script src="~/Scripts/Js/generic.js"></script>
+<script src="~/Scripts/Js/Camas.js"></script>
 
 <script>
-    window.onload = function () {
-        listarHabitaciones();
-    }
-    function listarHabitaciones() {
-        Pintar({
-            url: '@Url.Action("ListaCamas", "Cama")',
-            cabeceras: ['Id', 'Tipo', 'Descripcion'],
-            Datos: ['Id', 'Nombre', 'Descripcion'],
-            Id: 'IdTablaCamas'
-        });
-    }
+    var UrlLista = '@Url.Action("ListaCamas", "Cama")';
+    var UrlSearch = '@Url.Action("FiltrarCamas", "Cama")';
 </script>
-<script src="~/Scripts/generic.js"></script>
-

@@ -1,14 +1,19 @@
-﻿function Pintar(objConfiguration,objBusqueda) {
+﻿function getId(IdElement) {
+    return document.getElementById(IdElement)
+}
+
+
+function Pintar(objConfiguration, objBusqueda) {
+const SeccionBusqueda = (objBusqueda != undefined && objBusqueda.Buscar === true) ?
+    `<div class="input-group mb-3" >
+                    <input type="text" class="form-control" id="${objBusqueda.inputText}" placeholder="${objBusqueda.placeholder}">
+                        <button class="btn btn-primary" type="button" id="${objBusqueda.btnId}">Buscar</button>
+                </div>`: '';
     fetch(objConfiguration.url)
         .then(res => res.json())
         .then(data => {
             //Busqueda
-            const SeccionBusqueda = (objBusqueda != undefined && objBusqueda.Buscar === true) ?
-                `<div class="input-group mb-3" >
-                    <input type="text" class="form-control" id="${objBusqueda.inputText}" placeholder="${objBusqueda.placeolder}">
-                        <button class="btn btn-primary" type="button" id="${objBusqueda.btnId}">Buscar</button>
-                </div>`: '';
-
+          
             // Cabecera de la tabla
             const cabecera = objConfiguration.cabeceras
                 .map(th => `<th>${th}</th>`)
@@ -45,7 +50,17 @@
                     </tbody>
                 </table>`;
 
-            document.getElementById(objConfiguration.Id).innerHTML = tabla;
+            getId(objConfiguration.Id).innerHTML = tabla;
+            if (objBusqueda && objBusqueda.Buscar == true) {
+                getId(objBusqueda.btnId).addEventListener("click", () => {
+                    const parametros = getId(objBusqueda.inputText).value;
+                    const paramName = objBusqueda.paramName || "nombre";
+                    Pintar({
+                        ...objConfiguration,
+                        url: UrlSearch + `?${paramName}=${encodeURIComponent(parametros)}`
+                    }, objBusqueda);
+                });
+            }
         });
 }
 

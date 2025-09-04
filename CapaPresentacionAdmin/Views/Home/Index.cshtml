@@ -6,21 +6,9 @@
 
 <div id="IdTabla"></div>
 
-
-
-
+<script src="~/Scripts/Js/generic.js"></script>
+<script src="~/Scripts/Js/Habitacion.js"></script>
 <script>
-    window.onload = function () {
-        listarHabitaciones();
-    }
-    function listarHabitaciones() {
-        Pintar({
-            url: '@Url.Action("ListaHabitaciones","Home")',
-            cabeceras: ['Id', 'Tipo', 'Descripcion'],
-            Datos: ['Id', 'Tipo', 'Descripcion'],
-            Id: 'IdTabla'
-        });
-    }
+    var UrlListar = '@Url.Action("ListaHabitaciones","Home")'; 
+    var UrlSearch = '@Url.Action("FiltrarHabitaciones", "Home")';
 </script>
-<script src="~/Scripts/generic.js"></script>
-

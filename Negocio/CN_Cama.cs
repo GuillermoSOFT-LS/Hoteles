@@ -14,5 +14,10 @@ namespace Negocio
         {
             return new CD_Cama().GetAllCamas();
         }
+
+        public List<CE_Cama> GetCamaSearch(string nombre)
+        {
+            return new CD_Cama().GetCama(nombre);
+        }
     }
 }
